@@ -6,7 +6,7 @@
 
 ## Overview
 
-LexiLog is a desktop + web vocabulary tracker built for movie lovers who want to grow their English vocabulary organically. Every time you encounter an unfamiliar word, phrase, or idiom while watching a film, you can log it instantly — along with its meaning, the movie it came from, a usage example, and its difficulty level. Over time, LexiLog becomes your personal lexicon, searchable, quizzable, and exportable.
+LexiLog is a desktop + web vocabulary tracker built for movie lovers who want to grow and improvise their English vocabulary organically. Every time you encounter an unfamiliar word, phrase, or idiom while watching a film, you can log it instantly — along with its meaning, the movie it came from, a usage example, and its difficulty level. Over time, LexiLog becomes your personal lexicon, searchable, quizzable, and exportable.
 
 ---
 
