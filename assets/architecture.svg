@@ -1,0 +1,155 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LexiLog Vocabulary Journal Architecture</title>
+  <desc id="desc">Architecture diagram for the LexiLog desktop vocabulary journal showing launcher, Tkinter UI, application core, MongoDB storage, PDF export, and the optional web template prototype.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#232323"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#2d6cdf"/>
+    </marker>
+    <style>
+      .canvas { fill: #ffffff; stroke: #111111; stroke-width: 2; }
+      .zone { fill: #ffffff; stroke: #3f83f8; stroke-width: 2; stroke-dasharray: 7 7; }
+      .zone-title { fill: #000000; font: 700 18px Arial, Helvetica, sans-serif; }
+      .card-title { fill: #000000; font: 700 15px Arial, Helvetica, sans-serif; }
+      .card-sub { fill: #000000; font: 12px Arial, Helvetica, sans-serif; }
+      .card-title-sm { fill: #000000; font: 700 14px Arial, Helvetica, sans-serif; }
+      .card-sub-sm { fill: #000000; font: 11px Arial, Helvetica, sans-serif; }
+      .small { fill: #000000; font: 11px Arial, Helvetica, sans-serif; }
+      .arrow { stroke: #232323; stroke-width: 2; marker-end: url(#arrow); }
+      .arrow-soft { stroke: #2d6cdf; stroke-width: 2; stroke-dasharray: 6 6; marker-end: url(#arrow-blue); }
+      .icon { stroke: #232323; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="canvas" x="1" y="1" width="1278" height="758"/>
+  <text x="640" y="38" text-anchor="middle" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">LexiLog Personal Vocabulary Journal Architecture</text>
+
+  <rect class="zone" x="54" y="74" width="390" height="435"/>
+  <text class="zone-title" x="76" y="101">Desktop Runtime</text>
+
+  <rect x="86" y="128" width="170" height="68" rx="2" fill="#ffffff" stroke="#0e9f6e" stroke-width="2"/>
+  <path class="icon" d="M108 146 H132 L144 158 V181 H108 Z"/>
+  <path class="icon" d="M132 146 V158 H144"/>
+  <text class="card-title" x="165" y="156">VocabApp.bat</text>
+  <text class="card-sub" x="165" y="176">launch helper</text>
+
+  <rect x="86" y="232" width="170" height="68" rx="2" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <circle class="icon" cx="126" cy="266" r="18"/>
+  <path class="icon" d="M126 252 V280 M112 266 H140"/>
+  <text class="card-title" x="165" y="260">app.py</text>
+  <text class="card-sub" x="165" y="280">Tkinter entry point</text>
+
+  <rect x="86" y="350" width="320" height="112" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect class="icon" x="110" y="378" width="54" height="38"/>
+  <path class="icon" d="M110 389 H164"/>
+  <path class="icon" d="M121 401 H139 M121 410 H153"/>
+  <text class="card-title" x="196" y="385">Tkinter Desktop UI</text>
+  <text class="card-sub" x="196" y="407">Add, view/search, quiz, stats</text>
+  <text class="card-sub" x="196" y="426">and PDF export tabs</text>
+
+  <path class="arrow" d="M171 196 V224"/>
+  <path class="arrow" d="M171 300 V342"/>
+
+  <rect class="zone" x="474" y="74" width="430" height="435"/>
+  <text class="zone-title" x="496" y="101">Application Core</text>
+
+  <rect x="506" y="128" width="356" height="70" rx="2" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+  <path class="icon" d="M532 151 L552 139 L572 151 V177 H532 Z"/>
+  <path class="icon" d="M544 177 V160 H560 V177"/>
+  <text class="card-title" x="618" y="156">VocabularyApp class</text>
+  <text class="card-sub" x="618" y="176">stateful controller in app.py</text>
+
+  <rect x="506" y="236" width="168" height="72" rx="2" fill="#ffffff" stroke="#f97316" stroke-width="2"/>
+  <path class="icon" d="M524 258 H552 M524 272 H546 M524 286 H540"/>
+  <circle cx="558" cy="258" r="3" fill="#232323"/>
+  <circle cx="552" cy="272" r="3" fill="#232323"/>
+  <circle cx="546" cy="286" r="3" fill="#232323"/>
+  <text class="card-title-sm" x="578" y="263">Entry</text>
+  <text class="card-title-sm" x="578" y="281">Management</text>
+  <text class="card-sub-sm" x="578" y="299">save, update</text>
+
+  <rect x="694" y="236" width="168" height="72" rx="2" fill="#ffffff" stroke="#d946ef" stroke-width="2"/>
+  <circle class="icon" cx="722" cy="271" r="15"/>
+  <path class="icon" d="M722 256 V271 L735 279"/>
+  <text class="card-title-sm" x="750" y="267">Review</text>
+  <text class="card-title-sm" x="750" y="285">and Quiz</text>
+  <text class="card-sub-sm" x="750" y="302">random practice</text>
+
+  <rect x="506" y="346" width="168" height="72" rx="2" fill="#ffffff" stroke="#06b6d4" stroke-width="2"/>
+  <path class="icon" d="M524 392 V360 M524 392 H564"/>
+  <path class="icon" d="M532 382 L544 371 L554 376 L566 360"/>
+  <text class="card-title-sm" x="578" y="373">Search</text>
+  <text class="card-title-sm" x="578" y="391">and Stats</text>
+  <text class="card-sub-sm" x="578" y="408">filters, counts</text>
+
+  <rect x="694" y="346" width="168" height="72" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+  <path class="icon" d="M716 360 H754 V396 H716 Z"/>
+  <path class="icon" d="M724 372 H746 M724 384 H746"/>
+  <text class="card-title-sm" x="768" y="375">PDF Export</text>
+  <text class="card-sub-sm" x="768" y="394">ReportLab file</text>
+
+  <path class="arrow" d="M406 406 H454 V163 H498"/>
+  <path class="arrow" d="M590 198 V228"/>
+  <path class="arrow" d="M778 198 V228"/>
+  <path class="arrow" d="M590 308 V338"/>
+  <path class="arrow" d="M778 308 V338"/>
+
+  <rect class="zone" x="934" y="74" width="292" height="435"/>
+  <text class="zone-title" x="956" y="101">Data and Outputs</text>
+
+  <rect x="964" y="128" width="224" height="84" rx="2" fill="#ffffff" stroke="#9333ea" stroke-width="2"/>
+  <ellipse class="icon" cx="1002" cy="151" rx="24" ry="10"/>
+  <path class="icon" d="M978 151 V181 C978 187 1026 187 1026 181 V151"/>
+  <path class="icon" d="M978 166 C978 172 1026 172 1026 166"/>
+  <text class="card-title" x="1052" y="153">MongoDB Atlas</text>
+  <text class="card-sub" x="1052" y="174">vocabulary_db.words</text>
+  <text class="card-sub" x="1052" y="193">word/date/type indexes</text>
+
+  <rect x="964" y="258" width="224" height="88" rx="2" fill="#ffffff" stroke="#14b8a6" stroke-width="2"/>
+  <path class="icon" d="M982 279 H1024 V326 H982 Z"/>
+  <path class="icon" d="M990 292 H1016 M990 304 H1016 M990 316 H1008"/>
+  <text class="card-title" x="1052" y="284">Entry Documents</text>
+  <text class="card-sub" x="1052" y="305">word, meaning, context</text>
+  <text class="card-sub" x="1052" y="324">difficulty, reviews, learned</text>
+
+  <rect x="964" y="390" width="224" height="72" rx="2" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <path class="icon" d="M984 407 H1022 L1034 419 V445 H984 Z"/>
+  <path class="icon" d="M1022 407 V419 H1034"/>
+  <text class="card-title" x="1052" y="418">PDF File</text>
+  <text class="card-sub" x="1052" y="438">Vocabulary collection</text>
+
+  <path class="arrow" d="M862 163 H956"/>
+  <path class="arrow" d="M862 382 H942 V426 H956"/>
+  <path class="arrow" d="M1076 212 V250"/>
+
+  <rect class="zone" x="54" y="540" width="1172" height="154"/>
+  <text class="zone-title" x="76" y="568">Prototype Web Surface</text>
+
+  <rect x="86" y="602" width="238" height="70" rx="2" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <rect class="icon" x="108" y="622" width="46" height="32"/>
+  <path class="icon" d="M108 632 H154"/>
+  <text class="card-title" x="178" y="628">web_app.html</text>
+  <text class="card-sub" x="178" y="648">static UI prototype</text>
+
+  <rect x="388" y="602" width="238" height="70" rx="2" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+  <path class="icon" d="M410 637 H456"/>
+  <path class="icon" d="M433 614 V660"/>
+  <text class="card-title" x="478" y="628">REST routes</text>
+  <text class="card-sub" x="478" y="648">not implemented</text>
+
+  <rect x="692" y="602" width="238" height="70" rx="2" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <path class="icon" d="M716 623 H758 V655 H716 Z M723 630 H751 M723 642 H744"/>
+  <text class="card-title" x="782" y="628">Browser UX</text>
+  <text class="card-sub" x="782" y="648">desktop-like tabs</text>
+
+  <rect x="996" y="602" width="190" height="70" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <path class="icon" d="M1016 636 H1048 M1032 620 V652"/>
+  <text class="card-title" x="1062" y="628">Future API</text>
+  <text class="card-sub" x="1062" y="648">backend bridge</text>
+
+  <path class="arrow-soft" d="M324 637 H380"/>
+  <path class="arrow-soft" d="M626 637 H684"/>
+  <path class="arrow-soft" d="M930 637 H988"/>
+</svg>
