@@ -1,26 +1,50 @@
 # LexiLog - Your Personal Vocabulary Journal
 
-> A personal vocabulary journal to collect words, phrases, and idioms from the movies you watch. Add meanings, context, and difficulty levels. Quiz yourself, track stats, and export your collection as a PDF.
+> A desktop vocabulary journal for capturing memorable words, phrases, and idioms from movies, then turning them into searchable notes, quiz practice, learning stats, and printable PDFs.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [How to Use](#how-to-use)
+- [Tech Stack](#tech-stack)
 
 ---
 
 ## Overview
 
-LexiLog is a desktop vocabulary tracker for movie lovers who want to grow their English vocabulary organically. Every time you encounter an unfamiliar word, phrase, or idiom while watching a film, you can log it with its meaning, source movie, usage context, and difficulty level.
+LexiLog helps movie lovers build vocabulary from real viewing moments. When a dialogue line, subtitle, or idiom stands out, you can save it with its meaning, source movie, context sentence, difficulty level, and review progress.
 
-The current runnable application is the Tkinter app in `app.py`. The repository also includes `templates/web_app.html` as a static browser UI prototype, but the REST API routes referenced by that file are not currently implemented in the Python app.
+The working application is the Tkinter desktop app in `app.py`. The repository also includes `templates/web_app.html` as a static browser UI prototype; the API routes referenced by that prototype are not currently implemented in the Python app.
+
+## At a Glance
+
+| Area | What LexiLog Does |
+|---|---|
+| Capture | Save words, phrases, and idioms with meaning, movie source, context, and difficulty. |
+| Review | Quiz yourself on unlearned entries and update review progress as you practice. |
+| Explore | Search, filter, and inspect your vocabulary collection from a tabbed desktop interface. |
+| Reflect | View learning statistics by type, difficulty, review count, and source movie. |
+| Export | Generate a formatted PDF collection for offline revision or printing. |
 
 ---
 
 ## Features
 
-- **Add Entries** - Log words, phrases, or idioms with meaning, source movie, context sentence, and difficulty.
-- **View and Search** - Browse the full collection and search by word, meaning, or movie.
-- **Quiz Mode** - Practice unlearned entries and update review progress.
-- **Statistics** - See totals, learned counts, difficulty breakdowns, most-reviewed entries, and movie-wise counts.
-- **Export to PDF** - Generate a formatted vocabulary collection with ReportLab.
-- **MongoDB Persistence** - Store entries in a MongoDB `vocabulary_db.words` collection.
-- **Static Web Prototype** - Inspect the browser UI draft in `templates/web_app.html`.
+- **Entry management** - Add, update, view, search, filter, and delete vocabulary entries.
+- **Flexible entry types** - Organize content as words, phrases, or idioms.
+- **Movie-based context** - Keep the original source movie and sentence context beside each meaning.
+- **Difficulty tracking** - Mark entries as Easy, Medium, or Hard to guide review priority.
+- **Interactive quiz mode** - Practice unlearned entries, reveal answers, and mark what you know.
+- **Learning statistics** - Monitor totals, learned counts, difficulty breakdowns, most-reviewed entries, and movie-wise counts.
+- **PDF export** - Generate a printable vocabulary collection with ReportLab.
+- **MongoDB persistence** - Store entries in a MongoDB `vocabulary_db.words` collection.
+- **Static web prototype** - Preview the browser UI draft in `templates/web_app.html`.
 
 ---
 
