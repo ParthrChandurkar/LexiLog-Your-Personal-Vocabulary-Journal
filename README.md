@@ -82,9 +82,12 @@ LexiLog/
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.8 or newer
 - MongoDB Atlas account or local MongoDB instance
-- Python packages:
+- `pip` for installing Python packages
+- Windows is the smoothest path because the repo includes `VocabApp.bat`, but the Python script can run anywhere Tkinter is available.
+
+Install the required packages with:
 
 ```bash
 pip install pymongo reportlab
@@ -101,7 +104,25 @@ git clone https://github.com/ParthrChandurkar/LexiLog-Your-Personal-Vocabulary-J
 cd LexiLog-Your-Personal-Vocabulary-Journal
 ```
 
-### 2. Configure MongoDB
+### 2. Create a virtual environment
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install pymongo reportlab
+```
+
+macOS/Linux:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install pymongo reportlab
+```
+
+### 3. Configure MongoDB
 
 In `app.py`, update the connection string with your own MongoDB URI:
 
@@ -109,7 +130,16 @@ In `app.py`, update the connection string with your own MongoDB URI:
 self.client = pymongo.MongoClient("your-mongodb-connection-string")
 ```
 
-### 3. Run the desktop app
+LexiLog stores data in:
+
+```text
+Database:   vocabulary_db
+Collection: words
+```
+
+Keep private database credentials out of public commits. For production-style cleanup, move the URI to an environment variable before sharing the project broadly.
+
+### 4. Run the desktop app
 
 Windows:
 
@@ -123,7 +153,9 @@ Terminal:
 python app.py
 ```
 
-Optional: open `templates/web_app.html` to view the browser UI prototype. It needs matching backend API routes before it can work as a live web app.
+### 5. Preview the web prototype
+
+Open `templates/web_app.html` in a browser to inspect the static UI concept. It needs matching backend API routes before it can work as a live web app.
 
 ---
 
