@@ -12,7 +12,11 @@
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [How to Use](#how-to-use)
+- [Data Model](#data-model)
+- [Troubleshooting](#troubleshooting)
+- [Roadmap Ideas](#roadmap-ideas)
 - [Tech Stack](#tech-stack)
+- [License](#license)
 
 ---
 
@@ -161,13 +165,67 @@ Open `templates/web_app.html` in a browser to inspect the static UI concept. It 
 
 ## How to Use
 
-1. Go to the **Add Entry** tab.
-2. Select the type: Word, Phrase, or Idiom.
-3. Fill in the word, meaning, movie name, usage context, and difficulty.
-4. Save the entry.
-5. Browse entries in the **View All** tab.
-6. Practice from **Quiz Mode**.
-7. Export your collection from the **Export PDF** tab.
+### Add a vocabulary entry
+
+1. Open the **Add Entry** tab.
+2. Choose the entry type: Word, Phrase, or Idiom.
+3. Add the meaning, movie name, context sentence, and difficulty.
+4. Save the entry. If the same entry already exists, LexiLog can update it instead of duplicating it.
+
+### Review your collection
+
+1. Open the **View All** tab to see saved entries sorted by newest first.
+2. Use search to find entries by word, meaning, or movie.
+3. Use the type filter to focus on words, phrases, or idioms.
+4. Double-click an entry to inspect the full meaning and context.
+
+### Practice and export
+
+1. Open **Quiz Mode** to practice entries that are not marked as learned.
+2. Reveal answers when needed, then mark whether you knew the entry.
+3. Use **Statistics** to review totals, learned entries, difficulty spread, review counts, and movie-wise activity.
+4. Use **Export PDF** to create a printable vocabulary collection.
+
+---
+
+## Data Model
+
+Each saved vocabulary item is stored as a MongoDB document with fields like:
+
+| Field | Purpose |
+|---|---|
+| `word` | Lowercase word, phrase, or idiom used as the entry label. |
+| `meaning` | Definition or explanation added by the user. |
+| `movie` | Source movie where the entry was found. |
+| `context` | Dialogue line, subtitle, or sentence where the entry appeared. |
+| `difficulty` | User-selected level: Easy, Medium, or Hard. |
+| `entry_type` | Category: Word, Phrase, or Idiom. |
+| `date_added` | Timestamp created when the entry is first saved. |
+| `review_count` | Number of times the entry has been updated or reviewed in quiz mode. |
+| `learned` | Boolean flag used to keep learned entries out of future quiz rounds. |
+
+---
+
+## Troubleshooting
+
+| Problem | What to Check |
+|---|---|
+| MongoDB connection error | Confirm your URI, username, password, IP access list, and database network access. |
+| `ModuleNotFoundError` | Activate the virtual environment and run `pip install pymongo reportlab`. |
+| Tkinter window does not open | Make sure your Python installation includes Tkinter support. On Windows, the standard Python installer usually includes it. |
+| PDF export fails | Choose a folder where you have write permission and close any existing PDF with the same filename. |
+| Web prototype buttons do not save data | `templates/web_app.html` is currently a static UI prototype and needs backend API routes to become functional. |
+
+---
+
+## Roadmap Ideas
+
+- Move the MongoDB URI to an environment variable.
+- Add a `requirements.txt` file for one-command dependency installation.
+- Add automated tests around search, quiz updates, and PDF export helpers.
+- Build backend API routes for the static web prototype.
+- Add CSV import/export for easier migration between devices.
+- Add screenshots or GIFs of the desktop workflow.
 
 ---
 
