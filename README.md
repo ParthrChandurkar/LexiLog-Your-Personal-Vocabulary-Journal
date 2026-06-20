@@ -24,6 +24,7 @@
 - [Data Model](#data-model)
 - [Data and Security](#data-and-security)
 - [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 - [Roadmap Ideas](#roadmap-ideas)
 - [Tech Stack](#tech-stack)
 - [License](#license)
@@ -279,6 +280,23 @@ The current prototype reads its connection URI directly from `app.py`. Moving it
 | Tkinter window does not open | Make sure your Python installation includes Tkinter support. On Windows, the standard Python installer usually includes it. |
 | PDF export fails | Choose a folder where you have write permission and close any existing PDF with the same filename. |
 | Web prototype buttons do not save data | `templates/web_app.html` is currently a static UI prototype and needs backend API routes to become functional. |
+
+## Contributing
+
+Bug fixes, documentation improvements, and focused feature additions are welcome.
+
+1. Fork the repository and create a branch from `main`.
+2. Keep desktop changes in `app.py` and prototype-only changes in `templates/web_app.html`.
+3. Check the Python source before opening a pull request:
+
+   ```bash
+   python -m py_compile app.py
+   ```
+
+4. Manually verify the tabs affected by your change with a test database.
+5. Open a pull request explaining the problem, the solution, and how you tested it.
+
+Please keep credentials, exported vocabulary files, and personal database content out of commits.
 
 ---
 
