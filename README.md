@@ -15,6 +15,7 @@
 
 - [Overview](#overview)
 - [Features](#features)
+- [Application Tour](#application-tour)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
@@ -57,6 +58,20 @@ The working application is the Tkinter desktop app in `app.py`. The repository a
 - **PDF export** - Generate a printable vocabulary collection with ReportLab.
 - **MongoDB persistence** - Store entries in a MongoDB `vocabulary_db.words` collection.
 - **Static web prototype** - Preview the browser UI draft in `templates/web_app.html`.
+
+## Application Tour
+
+LexiLog keeps the learning loop inside five focused tabs:
+
+| Tab | Use it to |
+|---|---|
+| **Add Entry** | Record a word, phrase, or idiom together with its meaning and movie context. |
+| **View All** | Browse the complete journal, search its contents, and filter entries by type. |
+| **Quiz Mode** | Recall meanings, reveal answers, and mark entries as learned. |
+| **Statistics** | See collection totals, difficulty levels, review activity, and movie-wise progress. |
+| **Export PDF** | Select entry types and create a portable revision sheet. |
+
+A typical session is simple: **capture a word → review it in context → quiz your recall → track progress → export for revision**.
 
 ---
 
