@@ -105,6 +105,34 @@ Install the required packages with:
 pip install pymongo reportlab
 ```
 
+## Quick Start
+
+If Python and MongoDB are already available, the shortest setup path is:
+
+```bash
+git clone https://github.com/ParthrChandurkar/LexiLog-Your-Personal-Vocabulary-Journal.git
+cd LexiLog-Your-Personal-Vocabulary-Journal
+python -m venv .venv
+```
+
+Activate the environment and install the dependencies:
+
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+pip install pymongo reportlab
+python app.py
+```
+
+```bash
+# macOS/Linux
+source .venv/bin/activate
+pip install pymongo reportlab
+python app.py
+```
+
+Before launching, replace the MongoDB connection URI in `app.py` with your own URI. See the full setup below if you still need to create or configure a database.
+
 ---
 
 ## Getting Started
