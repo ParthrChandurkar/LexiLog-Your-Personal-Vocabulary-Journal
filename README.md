@@ -2,6 +2,13 @@
 
 > A desktop vocabulary journal for capturing memorable words, phrases, and idioms from movies, then turning them into searchable notes, quiz practice, learning stats, and printable PDFs.
 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Desktop UI](https://img.shields.io/badge/UI-Tkinter-4B8BBE)](https://docs.python.org/3/library/tkinter.html)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
+
+**[Features](#features) · [Quick Start](#quick-start) · [Usage](#how-to-use) · [Troubleshooting](#troubleshooting)**
+
 ---
 
 ## Table of Contents
@@ -10,6 +17,7 @@
 - [Features](#features)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
 - [Getting Started](#getting-started)
 - [How to Use](#how-to-use)
 - [Data Model](#data-model)
