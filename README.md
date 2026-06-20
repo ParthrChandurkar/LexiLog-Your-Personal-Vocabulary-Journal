@@ -22,6 +22,7 @@
 - [Getting Started](#getting-started)
 - [How to Use](#how-to-use)
 - [Data Model](#data-model)
+- [Data and Security](#data-and-security)
 - [Troubleshooting](#troubleshooting)
 - [Roadmap Ideas](#roadmap-ideas)
 - [Tech Stack](#tech-stack)
@@ -254,6 +255,18 @@ Each saved vocabulary item is stored as a MongoDB document with fields like:
 | `date_added` | Timestamp created when the entry is first saved. |
 | `review_count` | Number of times the entry has been updated or reviewed in quiz mode. |
 | `learned` | Boolean flag used to keep learned entries out of future quiz rounds. |
+
+## Data and Security
+
+Vocabulary entries live in the configured MongoDB database rather than in a local file. Keep that database safe:
+
+- Use a dedicated MongoDB user with access only to the LexiLog database.
+- Allow network access only from trusted IP addresses where practical.
+- Do not commit a username, password, or private connection URI to Git.
+- Rotate the database password immediately if a real URI has ever been pushed to a public repository.
+- Export or back up the `vocabulary_db.words` collection before changing database accounts.
+
+The current prototype reads its connection URI directly from `app.py`. Moving it to an environment variable is recommended before distributing or deploying the application.
 
 ---
 
