@@ -7,7 +7,7 @@
 [![Desktop UI](https://img.shields.io/badge/UI-Tkinter-4B8BBE)](https://docs.python.org/3/library/tkinter.html)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 
-**[Features](#features) · [Quick Start](#quick-start) · [Usage](#how-to-use) · [Troubleshooting](#troubleshooting)**
+**[Features](#features) - [Quick Start](#quick-start) - [Usage](#how-to-use) - [Troubleshooting](#troubleshooting)**
 
 ---
 
@@ -73,7 +73,7 @@ LexiLog keeps the learning loop inside five focused tabs:
 | **Statistics** | See collection totals, difficulty levels, review activity, and movie-wise progress. |
 | **Export PDF** | Select entry types and create a portable revision sheet. |
 
-A typical session is simple: **capture a word → review it in context → quiz your recall → track progress → export for revision**.
+A typical session is simple: **capture a word -> review it in context -> quiz your recall -> track progress -> export for revision**.
 
 ---
 
