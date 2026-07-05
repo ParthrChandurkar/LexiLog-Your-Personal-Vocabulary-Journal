@@ -25,6 +25,7 @@
 - [Data and Security](#data-and-security)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
+- [Maintainer Notes](#maintainer-notes)
 - [Roadmap Ideas](#roadmap-ideas)
 - [Tech Stack](#tech-stack)
 - [License](#license)
