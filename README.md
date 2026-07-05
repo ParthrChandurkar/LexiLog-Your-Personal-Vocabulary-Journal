@@ -247,6 +247,13 @@ Open `templates/web_app.html` in a browser to inspect the static UI concept. It 
 3. Use **Statistics** to review totals, learned entries, difficulty spread, review counts, and movie-wise activity.
 4. Use **Export PDF** to create a printable vocabulary collection.
 
+### Suggested review routine
+
+- Add new entries soon after watching so the movie context stays fresh.
+- Review hard entries first, then use quiz mode for mixed recall practice.
+- Mark an entry as learned only when you can explain it without opening the answer.
+- Export a PDF before exams, interviews, or offline reading sessions.
+
 ---
 
 ## Data Model
