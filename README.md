@@ -150,6 +150,14 @@ python app.py
 
 Before launching, replace the MongoDB connection URI in `app.py` with your own URI. See the full setup below if you still need to create or configure a database.
 
+### Setup Checklist
+
+- Confirm Python 3.8 or newer is available with `python --version`.
+- Create and activate a virtual environment before installing packages.
+- Install `pymongo` and `reportlab` in the active environment.
+- Configure a MongoDB URI that can read and write to `vocabulary_db.words`.
+- Run the app once with a test entry before adding a larger vocabulary collection.
+
 ---
 
 ## Getting Started
