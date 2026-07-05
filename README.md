@@ -315,6 +315,15 @@ Please keep credentials, exported vocabulary files, and personal database conten
 
 ---
 
+## Maintainer Notes
+
+- Keep README setup instructions aligned with the dependencies used in `app.py`.
+- Test MongoDB changes with a non-production database before connecting a personal collection.
+- Recheck PDF export after changing entry fields, fonts, or table formatting.
+- Treat `templates/web_app.html` as a prototype until matching backend routes are added.
+
+---
+
 ## Roadmap Ideas
 
 - Move the MongoDB URI to an environment variable.
