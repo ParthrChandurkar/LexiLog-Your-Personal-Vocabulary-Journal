@@ -52,7 +52,7 @@ The working application is the Tkinter desktop app in `app.py`. The repository a
 
 ## Features
 
-- **Entry management** - Add, Update, view, search, filter, and delete vocabulary entries.
+- **Entry management** - Add, Update, View, search, filter, and delete vocabulary entries.
 - **Flexible entry types** - Organize content as words, phrases, or idioms.
 - **Movie-based context** - Keep the original source movie and sentence context beside each meaning.
 - **Difficulty tracking** - Mark entries as Easy, Medium, or Hard to guide review priority.
