@@ -1,353 +1,45 @@
-# LexiLog - Your Personal Vocabulary Journal
+# LexiLog
 
-> A desktop vocabulary journal for capturing memorable words, phrases, and idioms from movies, then turning them into searchable notes, quiz practice, learning stats, and printable PDFs.
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Desktop UI](https://img.shields.io/badge/UI-Tkinter-4B8BBE)](https://docs.python.org/3/library/tkinter.html)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
-
-**[Features](#features) - [Quick Start](#quick-start) - [Usage](#how-to-use) - [Troubleshooting](#troubleshooting)**
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Application Tour](#application-tour)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Quick Start](#quick-start)
-- [Getting Started](#getting-started)
-- [How to Use](#how-to-use)
-- [Data Model](#data-model)
-- [Data and Security](#data-and-security)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Maintainer Notes](#maintainer-notes)
-- [Roadmap Ideas](#roadmap-ideas)
-- [Tech Stack](#tech-stack)
-- [License](#license)
-
----
-
-## Overview
-
-LexiLog helps movie lovers build vocabulary from real viewing moments. When a dialogue line, subtitle, or idiom stands out, you can save it with its meaning, source movie, context sentence, difficulty level, and review progress.
-
-The working application is the Tkinter desktop app in `app.py`. The repository also includes `templates/web_app.html` as a static browser UI prototype; the API routes referenced by that prototype are not currently implemented in the Python app.
-
-## At a Glance
-
-| Area | What LexiLog Does |
-|---|---|
-| Capture | Save words, phrases, and idioms with meaning, movie source, context, and difficulty. |
-| Review | Quiz yourself on unlearned entries and update review progress as you practice. |
-| Explore | Search, filter, and inspect your vocabulary collection from a tabbed desktop interface. |
-| Reflect | View learning statistics by type, difficulty, review count, and source movie. |
-| Export | Generate a formatted PDF collection for offline revision or printing. |
-
----
+LexiLog is a Python desktop vocabulary journal for recording words, meanings, examples, and review progress. It stores entries in MongoDB and includes a separate HTML prototype for previewing the interface in a browser.
 
 ## Features
 
-- **Entry management** - Add, Update, View, search, filter, and delete vocabulary entries.
-- **Flexible entry types** - Organize content as words, phrases, or idioms.
-- **Movie-based context** - Keep the original source movie and sentence context beside each meaning.
-- **Difficulty tracking** - Mark entries as Easy, Medium, or Hard to guide review priority.
-- **Interactive quiz mode** - Practice unlearned entries, reveal answers, and mark what you know.
-- **Learning statistics** - Monitor totals, learned counts, difficulty breakdowns, most-reviewed entries, and movie-wise counts.
-- **PDF export** - Generate a printable vocabulary collection with ReportLab.
-- **MongoDB persistence** - Store entries in a MongoDB `vocabulary_db.words` collection.
-- **Static web prototype** - Preview the browser UI draft in `templates/web_app.html`.
-
-## Application Tour
-
-LexiLog keeps the learning loop inside five focused tabs:
-
-| Tab | Use it to |
-|---|---|
-| **Add Entry** | Record a word, phrase, or idiom together with its meaning and movie context. |
-| **View All** | Browse the complete journal, search its contents, and filter entries by type. |
-| **Quiz Mode** | Recall meanings, reveal answers, and mark entries as learned. |
-| **Statistics** | See collection totals, difficulty levels, review activity, and movie-wise progress. |
-| **Export PDF** | Select entry types and create a portable revision sheet. |
-
-A typical session is simple: **capture a word -> review it in context -> quiz your recall -> track progress -> export for revision**.
-
----
+- Add, edit, delete, search, and filter vocabulary entries
+- Track mastery and review status
+- Practice saved words and export vocabulary data
+- MongoDB-backed persistence
+- Tkinter desktop interface and PDF export through ReportLab
 
 ## Architecture
 
-![LexiLog architecture diagram](assets/architecture.svg)
-
----
-
-## Data Flow
-
-1. The user starts the app through `VocabApp.bat` or by running `app.py`.
-2. The Tkinter tabs call methods on the `VocabularyApp` controller.
-3. Entries are saved, searched, updated, deleted, and counted in MongoDB.
-4. Quiz and review actions update review counters and learned status.
-5. PDF export reads selected entries and renders a vocabulary collection file.
-
----
-
-## Project Structure
-
-```text
-LexiLog/
-|-- app.py                    # Main Tkinter app, MongoDB logic, quiz/stats, PDF export
-|-- VocabApp.bat              # Windows launcher
-|-- assets/
-|   `-- architecture.svg      # README architecture diagram
-|-- templates/
-|   `-- web_app.html          # Static browser UI prototype
-`-- .vscode/
-    `-- launch.json           # VS Code debug config
-```
-
----
-
-## Requirements
-
-- Python 3.8 or newer
-- MongoDB Atlas account or local MongoDB instance
-- `pip` for installing Python packages
-- Windows is the smoothest path because the repo includes `VocabApp.bat`, but the Python script can run anywhere Tkinter is available.
-
-Install the required packages with:
-
-```bash
-pip install pymongo reportlab
-```
-
-## Quick Start
-
-If Python and MongoDB are already available, the shortest setup path is:
-
-```bash
-git clone https://github.com/ParthrChandurkar/LexiLog-Your-Personal-Vocabulary-Journal.git
-cd LexiLog-Your-Personal-Vocabulary-Journal
-python -m venv .venv
-```
-
-Activate the environment and install the dependencies:
-
-```powershell
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
-pip install pymongo reportlab
-python app.py
-```
-
-```bash
-# macOS/Linux
-source .venv/bin/activate
-pip install pymongo reportlab
-python app.py
-```
-
-Before launching, replace the MongoDB connection URI in `app.py` with your own URI. See the full setup below if you still need to create or configure a database.
-
-### Setup Checklist
-
-- Confirm Python 3.8 or newer is available with `python --version`.
-- Create and activate a virtual environment before installing packages.
-- Install `pymongo` and `reportlab` in the active environment.
-- Configure a MongoDB URI that can read and write to `vocabulary_db.words`.
-- Run the app once with a test entry before adding a larger vocabulary collection.
-
----
+`app.py` contains the desktop interface, application logic, and MongoDB access. `templates/web_app.html` is a standalone browser prototype; it is not the primary application and does not replace the Python desktop client.
 
 ## Getting Started
 
-### 1. Clone the project
+Prerequisites: Python 3, MongoDB, and Tk support.
 
 ```bash
-git clone https://github.com/ParthrChandurkar/LexiLog-Your-Personal-Vocabulary-Journal.git
-cd LexiLog-Your-Personal-Vocabulary-Journal
+python -m venv .venv
+python -m pip install pymongo reportlab
 ```
 
-### 2. Create a virtual environment
-
-Windows PowerShell:
+On Windows PowerShell:
 
 ```powershell
-python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install pymongo reportlab
-```
-
-macOS/Linux:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install pymongo reportlab
-```
-
-### 3. Configure MongoDB
-
-In `app.py`, update the connection string with your own MongoDB URI:
-
-```python
-self.client = pymongo.MongoClient("your-mongodb-connection-string")
-```
-
-LexiLog stores data in:
-
-```text
-Database:   vocabulary_db
-Collection: words
-```
-
-Keep private database credentials out of public commits. For production-style cleanup, move the URI to an environment variable before sharing the project broadly.
-
-### 4. Run the desktop app
-
-Windows:
-
-```text
-Double-click VocabApp.bat
-```
-
-Terminal:
-
-```bash
 python app.py
 ```
 
-### 5. Preview the web prototype
+The included `VocabApp.bat` contains an absolute path from the original development machine. Update that path before using the launcher, or run `python app.py` directly.
 
-Open `templates/web_app.html` in a browser to inspect the static UI concept. It needs matching backend API routes before it can work as a live web app.
+## Configuration
 
----
+`app.py` currently contains a hardcoded MongoDB connection string. Replace it with an environment-based value and rotate the exposed database credential before running or publishing the application. This README does not reproduce that credential.
 
-## How to Use
+## Limitations
 
-### Add a vocabulary entry
+- Dependencies are not pinned in a requirements file.
+- Automated tests are not included.
+- The desktop application and browser prototype are separate implementations.
+- The current source requires manual secret-remediation work; this README change intentionally does not modify application code.
 
-1. Open the **Add Entry** tab.
-2. Choose the entry type: Word, Phrase, or Idiom.
-3. Add the meaning, movie name, context sentence, and difficulty.
-4. Save the entry. If the same entry already exists, LexiLog can update it instead of duplicating it.
-
-### Review your collection
-
-1. Open the **View All** tab to see saved entries sorted by newest first.
-2. Use search to find entries by word, meaning, or movie.
-3. Use the type filter to focus on words, phrases, or idioms.
-4. Double-click an entry to inspect the full meaning and context.
-
-### Practice and export
-
-1. Open **Quiz Mode** to practice entries that are not marked as learned.
-2. Reveal answers when needed, then mark whether you knew the entry.
-3. Use **Statistics** to review totals, learned entries, difficulty spread, review counts, and movie-wise activity.
-4. Use **Export PDF** to create a printable vocabulary collection.
-
-### Suggested review routine
-
-- Add new entries soon after watching so the movie context stays fresh.
-- Review hard entries first, then use quiz mode for mixed recall practice.
-- Mark an entry as learned only when you can explain it without opening the answer.
-- Export a PDF before exams, interviews, or offline reading sessions.
-
----
-
-## Data Model
-
-Each saved vocabulary item is stored as a MongoDB document with fields like:
-
-| Field | Purpose |
-|---|---|
-| `word` | Lowercase word, phrase, or idiom used as the entry label. |
-| `meaning` | Definition or explanation added by the user. |
-| `movie` | Source movie where the entry was found. |
-| `context` | Dialogue line, subtitle, or sentence where the entry appeared. |
-| `difficulty` | User-selected level: Easy, Medium, or Hard. |
-| `entry_type` | Category: Word, Phrase, or Idiom. |
-| `date_added` | Timestamp created when the entry is first saved. |
-| `review_count` | Number of times the entry has been updated or reviewed in quiz mode. |
-| `learned` | Boolean flag used to keep learned entries out of future quiz rounds. |
-
-## Data and Security
-
-Vocabulary entries live in the configured MongoDB database rather than in a local file. Keep that database safe:
-
-- Use a dedicated MongoDB user with access only to the LexiLog database.
-- Allow network access only from trusted IP addresses where practical.
-- Do not commit a username, password, or private connection URI to Git.
-- Rotate the database password immediately if a real URI has ever been pushed to a public repository.
-- Export or back up the `vocabulary_db.words` collection before changing database accounts.
-
-The current prototype reads its connection URI directly from `app.py`. Moving it to an environment variable is recommended before distributing or deploying the application.
-
----
-
-## Troubleshooting
-
-| Problem | What to Check |
-|---|---|
-| MongoDB connection error | Confirm your URI, username, password, IP access list, and database network access. |
-| `ModuleNotFoundError` | Activate the virtual environment and run `pip install pymongo reportlab`. |
-| Tkinter window does not open | Make sure your Python installation includes Tkinter support. On Windows, the standard Python installer usually includes it. |
-| PDF export fails | Choose a folder where you have write permission and close any existing PDF with the same filename. |
-| Web prototype buttons do not save data | `templates/web_app.html` is currently a static UI prototype and needs backend API routes to become functional. |
-
-## Contributing
-
-Bug fixes, documentation improvements, and focused feature additions are welcome.
-
-1. Fork the repository and create a branch from `main`.
-2. Keep desktop changes in `app.py` and prototype-only changes in `templates/web_app.html`.
-3. Check the Python source before opening a pull request:
-
-   ```bash
-   python -m py_compile app.py
-   ```
-
-4. Manually verify the tabs affected by your change with a test database.
-5. Open a pull request explaining the problem, the solution, and how you tested it.
-
-Please keep credentials, exported vocabulary files, and personal database content out of commits.
-
----
-
-## Maintainer Notes
-
-- Keep README setup instructions aligned with the dependencies used in `app.py`.
-- Test MongoDB changes with a non-production database before connecting a personal collection.
-- Recheck PDF export after changing entry fields, fonts, or table formatting.
-- Treat `templates/web_app.html` as a prototype until matching backend routes are added.
-
----
-
-## Roadmap Ideas
-
-- Move the MongoDB URI to an environment variable.
-- Add a `requirements.txt` file for one-command dependency installation.
-- Add automated tests around search, quiz updates, and PDF export helpers.
-- Build backend API routes for the static web prototype.
-- Add CSV import/export for easier migration between devices.
-- Add screenshots or GIFs of the desktop workflow.
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Desktop GUI | Python, Tkinter |
-| App Logic | Python `VocabularyApp` class |
-| Prototype Web UI | HTML, CSS, JavaScript |
-| Database | MongoDB Atlas |
-| PDF Export | ReportLab |
-
----
-
-## License
-
-MIT License - free to use, modify, and share.
